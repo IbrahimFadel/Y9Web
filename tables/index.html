@@ -1,9 +1,17 @@
-<html>
+<html>	
 
+<ul id="nav">
+  <li><a href="./index.html">Home</a></li>
+  <li><a href="#WWWHTML">WWW & HTML</a></li>
+  <li><a href="#CSS">CSS</a></li>
+  <li><a href="#Javascript">Javascript</a></li>
+</ul>
+<br><br><br>
 <h1 style="text-align: center;">Tables of Time</h1>
-	
-	
-<table class="inventors" border="1">
+
+<br><br><br><br><br><br><br><br><br>
+
+<table class="inventors" border="1" style="width: 90%;">
   <th>Inventer</th><th>Technology</th>
   <tr>
      <td>Tim Berners-Lee</td><td>WWW & HTML</td>
@@ -16,18 +24,57 @@
   </tr>
 </table>
 
-<div style="background: #D1CDCD; border-radius: 10px; width: 60%; margin: auto; padding: 20px; margin-top: 30px;">
-	<h3 style="display: block; margin-left: 230px; width: 60%;">1989 - Time Berners-Lee invents the WWW & HTML</h3>
-	<img style="display: block; margin-left: auto; margin-right: auto; width: 20%;" src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Tim_Berners-Lee.jpg" width="150px"/><br>
-	<h3 style="display: block; margin-left: 260px; width: 60%;">1996 - Håkon Wium Lie invents CSS</h3>
-	<img style="display: block; margin-left: auto; margin-right: auto; width: 20%;" src="http://i.iinfo.cz/urs/hakon_wium_lie-121043715851298.jpg" width="150px"/>
-	<h3 style="display: block; margin-left: 250px; width: 60%;">1995 - Brenden Eich invents JavaScript</h3>
-	<img style="display: block; margin-left: auto; margin-right: auto; width: 100%;" src="http://www.nndb.com/people/095/000031002/brendan-eich-2-sized.jpg" width="150px">
-</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<!--<div style="background: #EABCE516; border-radius: 10px; width: 60%; margin: auto; padding: 20px; margin-top: 30px; padding-bottom: 250px;"> !-->
+	<div id="WWWHTML">
+	<h2 style="padding-top: 150px; display: block; margin-left: 430px; width: 100%;">1989 - Time Berners-Lee invents the WWW & HTML</h2>
+	<img style="display: block; margin-left: auto; margin-right: auto; width: 30%;" src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Tim_Berners-Lee.jpg" width="150px"/>
+	</div><br><br><br><br><br><br><br><br><br><br>
+	<div id="CSS">
+	<h2 style="padding-top: 50px; display: block; margin-left: 520px; width: 100%;">1996 - Håkon Wium Lie invents CSS</h2>
+	<img style="display: block; margin-left: auto; margin-right: auto; width: 30%;" src="http://i.iinfo.cz/urs/hakon_wium_lie-121043715851298.jpg" width="150px"/>
+	</div><br><br><br><br><br><br><br><br><br><br>
+	<div id="Javascript">
+	<h2 style="display: block; margin-left: 510px; width: 100%;">1995 - Brenden Eich invents JavaScript</h2>
+	<img style="display: block; margin-left: auto; margin-right: auto; width: 30%;" src="http://www.nndb.com/people/095/000031002/brendan-eich-2-sized.jpg" width="150px">
+	</div>
+<!--</div> !-->
 
 
 
 <style>
+
+html {
+	scroll-behavior: smooth;
+	background-image: linear-gradient(#FFFFFF, #9674A0);
+	padding-bottom: 100px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
 
 .inventors {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
