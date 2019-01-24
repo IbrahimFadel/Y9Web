@@ -2,10 +2,30 @@
 <html>
 <head>
 	<title>Inquiry</title>
+
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="stylesheet" type="text/css" href="buttons.css">
 </head>
 <body>
+<div class="center bg-lime" style="height: 100%; padding: 5px;">
+	<h1 class="header">Life Expectancy by Country</h1>
 
+	<div class="dropdown">
+	  <button onclick="display()" class="dropbtn button primary">Year</button>
+	  <div id="myDropdown" class="dropdown-content">
+	    <a href="#home">2016</a>
+	    <a href="#about">2015</a>
+	    <a href="#contact">2014</a>
+	  </div>
+	</div>
 
+	<button class="button primary" style="margin: 5%;" onclick="reverseList()">Reverse</button>
+	<div id="dataContainer">
+	</div>
 
+</div>
+
+<script src="data.json"></script>
+<script src="processData.js"></script>
 </body>
 </html>

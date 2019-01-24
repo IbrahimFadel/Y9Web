@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+  </head>
+  <body>
+    <h1 class="header">Applying Javascript</h1>
+
+    <button id="addPersonBtn" onclick="displayForm()">Add Person</button>
+
+    <form class="container" style="display: none;" id="form">
+      <label>Name</label> <input type="text" id="name" /> <br />
+      <br />
+      <label>Age</label> <input type="number" id="age" /><br />
+      <br />
+      <br />
+      <button
+        class="button"
+        style="margin-left: 0%; margin-top: -1%;"
+        onclick="addPerson()"
+        type="button"
+      >
+        Add
+      </button>
+    </form>
+
+    <div id="renderObjects"></div>
+
+    <script src="index.js"></script>
+  </body>
+</html>

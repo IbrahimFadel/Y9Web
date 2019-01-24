@@ -1,0 +1,36 @@
+.html {
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.name {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.age {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+  margin-left: 5%;
+  margin-top: 5%;
+}
+
+.button {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #7fffd450;
+}
+
+#addPersonBtn {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #7fffd450;
+  margin-left: 5%;
+  margin-top: 5%;
+}
