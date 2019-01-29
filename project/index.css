@@ -16,6 +16,15 @@ html, body {
 	letter-spacing: 2px;
 }
 
+.sub-header {
+	font-family: Plantagenet Cherokee;
+	letter-spacing: 2px;
+	display: inline;
+	margin: 10%;
+	/*margin-top: 10px;*/
+	text-align: center;
+}
+
 .bg-lime {
 	background: #CBFF77;
 }
@@ -176,4 +185,18 @@ hr {
 
 .short {
 	width: 40%;
+}
+
+.sub-p {
+	font-family: Plantagenet Cherokee;
+	letter-spacing: 1px;
+	text-align: center;
+	text-align: justify;
+}
+
+.section {
+	width: 35%;
+	display: inline-block;
+	margin: 5%;
+	text-align: center;
 }
