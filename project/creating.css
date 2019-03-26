@@ -1,0 +1,45 @@
+@font-face {
+	src: url(Gravity-Book.otf);
+	font-family: gravity;
+}
+
+@font-face {
+	src: url(Gravity-Light.otf);
+	font-family: gravityLight;
+}
+
+p, h1, h2, h3, h4, h5 {
+	font-family: gravity;
+}
+
+#font-page-div {
+
+}
+
+#font-page-div #font-page-header {
+	margin-top: 5%;
+	text-align: center;
+}
+
+/*#font-page-div #font-page-header-hr {
+	width: 
+}*/
+
+#front-page-select {
+	margin-left: 10%;
+	margin-top: 10%;
+}
+
+#front-page-actual-select, #select-year {
+	background-color: rgba(222, 222, 222, .5);
+	width: 5%;
+	height: 1.5rem;	
+}
+
+#front-page-actual-select:focus, #select-year:focus{
+	outline:0;
+}
+
+#first-interactive-div {
+	margin-top: 10%;
+}

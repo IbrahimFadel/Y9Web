@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Creating the Solution</title>
+
+		<link rel="stylesheet" type="text/css" href="creating.css">
+	</head>
+	<body>
+
+		<div id="font-page-div">
+			<h1 id="font-page-header">Life Expectancy by Country</h1>
+			<hr id="font-page-header-hr">
+		</div>
+
+		<div id="first-interactive-div">
+			<h2 id="front-page-select" style="display: inline;">The life expectancy in </h2>
+			<select id="front-page-actual-select" style="display: inline;" onchange="updateText()"></select>
+			<h2 style="display: inline;"> as of </h2>
+			<select style="display: inline;" id="select-year" onchange="updateText()"></select>
+			<h2 id="insert-here" style="display: inline;"> is: </h2>
+		</div>
+
+		<br><br><br>
+		<canvas id="canvas1"></canvas>
+		<canvas id="canvas2"></canvas>
+
+		<script src="data.json"></script>
+		<script src="creating.js"></script>	
+	</body>
+</html> 
