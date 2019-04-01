@@ -163,8 +163,8 @@ var LineGraph = function(options) {
         let count = 0;
         for(let i = 0; i < this.canvas.width; i++) {
             if(i % spaceBetweenPoints == 0 && i != 0) {
-                console.log(this.options.data)
-                console.log("POINT");
+                // console.log(this.options.data)
+                // console.log("POINT");
                 this.drawPoint(i, 10);
                 count++
             }
@@ -255,10 +255,12 @@ myLineGraph = new LineGraph(
     {
         canvas:canvas2,
         data:lifeExpectancies,
-        r:5
+        r:3
     }
 );
 
 myLineGraph.draw();
+
+// console.log(document.getElementById("test"));
 
 
