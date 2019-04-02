@@ -22,6 +22,7 @@ function propogateLifeExpectanciesObject() {
             lifeExpectancies[year] = lifeExpectancyAtBirthBothSexes[i].Value;
         }
     }
+    // console.log(lifeExpectancies)
 }
 
 for(let i = 0; i < rawdata.length; i++) {
@@ -131,9 +132,12 @@ function updateText() {
 
     if(functionCalledBefore) {
         propogateLifeExpectanciesObject();
+        console.log(lifeExpectancies);
         propogateYearsSelect();
         myBarchart.clear();
         myBarchart.draw();
+        myLineGraph.clear();
+        myLineGraph.draw();
     }
 
     functionCalledBefore = true;
@@ -156,18 +160,45 @@ var LineGraph = function(options) {
     }
 
     this.draw = function() {
-        let spaceBetweenPoints = parseInt(this.canvas.width / Object.keys(this.options.data).length);
 
-        // console.log(Object.keys(this.options.data).length);
-        // console.log(parseInt(spaceBetweenPoints))
-        let count = 0;
-        for(let i = 0; i < this.canvas.width; i++) {
-            if(i % spaceBetweenPoints == 0 && i != 0) {
-                // console.log(this.options.data)
-                // console.log("POINT");
-                this.drawPoint(i, 10);
-                count++
-            }
+        var maxValue = 0;
+        for (var categ in this.options.data){
+            maxValue = Math.max(maxValue,this.options.data[categ]);
+        }
+        var gridValue = 0;
+        while (gridValue <= maxValue){
+            var gridY = this.canvas.height * (1 - gridValue/maxValue);
+            drawLine(
+                this.ctx,
+                0,
+                gridY,
+                this.canvas.width,
+                gridY,
+                "#eeeee0"
+            );
+             
+            this.ctx.save();
+            this.ctx.fillStyle = this.options.gridColor;
+            this.ctx.font = "bold 10px Arial";
+            this.ctx.fillStyle = "#000000";
+            this.ctx.fillText(gridValue, 10,gridY - 2);
+            this.ctx.restore();
+            gridValue+=this.options.gridScale;
+        }
+
+        var pointIndex = 0;
+        var numberOfPoints = Object.keys(this.options.data).length;
+        var spaceBetweenPoints = (this.canvas.width)/numberOfPoints;
+ 
+        for (categ in this.options.data){
+            var val = this.options.data[categ];
+            var pointHeight = Math.round( this.canvas.height * val/maxValue) ;
+            this.drawPoint(
+                pointIndex * spaceBetweenPoints + 20,
+                this.canvas.height - pointHeight,
+            );
+ 
+            pointIndex++;
         }
     }
 }
@@ -255,7 +286,9 @@ myLineGraph = new LineGraph(
     {
         canvas:canvas2,
         data:lifeExpectancies,
-        r:3
+        r:3,
+        lineSpacing:40,
+        gridScale:4
     }
 );
 
