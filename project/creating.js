@@ -165,9 +165,13 @@ var LineGraph = function(options) {
         for (var categ in this.options.data){
             maxValue = Math.max(maxValue,this.options.data[categ]);
         }
+
+        var canvasActualHeight = this.canvas.height - this.options.padding * 2;
+        var canvasActualWidth = this.canvas.width - this.options.padding * 2;
+
         var gridValue = 0;
         while (gridValue <= maxValue){
-            var gridY = this.canvas.height * (1 - gridValue/maxValue);
+            var gridY = this.canvas.height * (1 - gridValue/maxValue) + this.options.padding;
             drawLine(
                 this.ctx,
                 0,
@@ -188,14 +192,14 @@ var LineGraph = function(options) {
 
         var pointIndex = 0;
         var numberOfPoints = Object.keys(this.options.data).length;
-        var spaceBetweenPoints = (this.canvas.width)/numberOfPoints;
+        var spaceBetweenPoints = (canvasActualWidth)/numberOfPoints;
  
         for (categ in this.options.data){
             var val = this.options.data[categ];
-            var pointHeight = Math.round( this.canvas.height * val/maxValue) ;
+            var pointHeight = Math.round( canvasActualHeight * val/maxValue) ;
             this.drawPoint(
-                pointIndex * spaceBetweenPoints + 20,
-                this.canvas.height - pointHeight,
+                this.options.padding + pointIndex * spaceBetweenPoints + 20,
+                this.canvas.height - pointHeight - this.options.padding,
             );
  
             pointIndex++;
@@ -286,8 +290,8 @@ myLineGraph = new LineGraph(
     {
         canvas:canvas2,
         data:lifeExpectancies,
+        padding:20,
         r:3,
-        lineSpacing:40,
         gridScale:4
     }
 );
