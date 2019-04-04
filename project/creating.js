@@ -125,14 +125,25 @@ function propogateYearsSelect() {
 }
 
 function updateText() {
-    document.getElementById("insert-here").innerHTML = selectText + " " + select.value;
+    // document.getElementById("insert-here").innerHTML;
+
     currentCountry = select[select.selectedIndex].innerHTML; 
+    currentYear = document.getElementById("select-year").value;
+    document.getElementById("myRange").value = currentYear;
+    document.getElementById("demo").innerHTML = "Current year: " + currentYear;
+    // document.getElementById("select-year").selectedIndex = 1;
+    // console.log(currentYear.slice(-1))
+    document.getElementById("select-year").value = currentYear;
+    for(let i = 0; i < rawdata.length; i++) {
+        if(rawdata[i].dims.COUNTRY == select[select.selectedIndex].innerHTML && rawdata[i].dims.YEAR == currentYear && rawdata[i].dims.GHO == 'Life expectancy at birth (years)' && rawdata[i].dims.SEX == 'Both sexes') {
+            document.getElementById("insert-here").innerHTML = "is: " + rawdata[i].Value;
+        }
+    }
 
     // console.log(select.value);
 
     if(functionCalledBefore) {
         propogateLifeExpectanciesObject();
-        console.log(lifeExpectancies);
         propogateYearsSelect();
         myBarchart.clear();
         myBarchart.draw();
@@ -193,6 +204,7 @@ var LineGraph = function(options) {
         var pointIndex = 0;
         var numberOfPoints = Object.keys(this.options.data).length;
         var spaceBetweenPoints = (canvasActualWidth)/numberOfPoints;
+        var pointLocations = [];
  
         for (categ in this.options.data){
             var val = this.options.data[categ];
@@ -201,9 +213,21 @@ var LineGraph = function(options) {
                 this.options.padding + pointIndex * spaceBetweenPoints + 20,
                 this.canvas.height - pointHeight - this.options.padding,
             );
+            pointLocations.push([this.options.padding + pointIndex * spaceBetweenPoints + 20, this.canvas.height - pointHeight - this.options.padding])
  
+            this.ctx.font = "bold 9px Arial";
+            this.ctx.fillText(categ, spaceBetweenPoints * pointIndex + this.options.padding + 10, this.canvas.height)
+
             pointIndex++;
         }
+        for(let i = 0; i < pointLocations.length; i++) {
+            if(i != pointLocations.length - 1) {
+                drawLine(this.ctx, pointLocations[i][0], pointLocations[i][1], pointLocations[i+1][0], pointLocations[i+1][1], "black");
+            }
+
+        }
+
+
     }
 }
 
@@ -266,7 +290,8 @@ var Barchart = function(options) {
                 barHeight,
                 this.colors[barIndex%this.colors.length]
             );
- 
+            this.ctx.font = "bold 8px Arial";
+            this.ctx.fillText(categ, barSize * barIndex + this.options.padding, this.canvas.height - 20)
             barIndex++;
         }
   
@@ -291,7 +316,7 @@ myLineGraph = new LineGraph(
         canvas:canvas2,
         data:lifeExpectancies,
         padding:20,
-        r:3,
+        r:2,
         gridScale:4
     }
 );

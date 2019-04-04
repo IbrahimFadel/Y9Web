@@ -4,6 +4,7 @@
 		<title>Creating the Solution</title>
 
 		<link rel="stylesheet" type="text/css" href="creating.css">
+		<link rel="stylesheet" type="text/css" href="quickAnims.css">
 	</head>
 	<body>
 
@@ -36,42 +37,80 @@
 </svg><br><br>
 
 <div id="slidecontainer">
-  <input type="range" style="width: 50%;" min="2000" max="2016" value="2016" class="slider" id="myRange"></input>
+  <input type="range" style="width: 50%;" min="2000" max="2016" value="2000" class="slider" id="myRange"></input>
   <p id="demo">Current year: </p>
 </div>
 
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+<script src="data.json"></script>
+<script src="creating.js"></script>	
+<script>
+	// const toColor = num => "rgba(" + [(255 * (1 - num / 90)) * 1.1 | 0, (255 * num / 90) | 0, 0].join(",") + ")"; 
+  // var currentYear = '2000';
+  var slider = document.getElementById("myRange");
+  var output = document.getElementById("demo");
+  output.innerHTML = "Current year: " + slider.value;
 
-		<script src="data.json"></script>
-		<script src="creating.js"></script>	
-		<script>
-      var currentYear = '2016';
-      var slider = document.getElementById("myRange");
-      var output = document.getElementById("demo");
-      output.innerHTML = "Current year: " + slider.value;
+  slider.oninput = function() {
+    output.innerHTML = "Current year: " + this.value;
+    currentYear = this.value.toString();
 
-      slider.oninput = function() {
-        output.innerHTML = "Current year: " + this.value;
-        currentYear = this.value.toString();
-      }
+    document.getElementById("select-year").value = currentYear;
+    for(let i = 0; i < rawdata.length; i++) {
+        if(rawdata[i].dims.COUNTRY == select[select.selectedIndex].innerHTML && rawdata[i].dims.YEAR == currentYear && rawdata[i].dims.GHO == 'Life expectancy at birth (years)' && rawdata[i].dims.SEX == 'Both sexes') {
+            document.getElementById("insert-here").innerHTML = "is: " + rawdata[i].Value;
+        }
+    }
+  }
+  	var colourData = [];
+  	for(let i = 0; i < rawdata.length; i++) {
+  		if(rawdata[i].dims.GHO == 'Life expectancy at birth (years)' && rawdata[i].dims.SEX == 'Both sexes' && rawdata[i].dims.YEAR == currentYear){
+  			colourData.push([rawdata[i].dims.COUNTRY, rawdata[i].Value]);
+		}
+  	}
+	var countryElements = document.getElementById('countries').childNodes;
+	var countryCount = countryElements.length;
+	var countryNames = [];
+  	for(let i = 0; i < countryCount; i++) {
+  		countryNames.push(countryElements[i].getAttribute("data-name"));
+  		countryNames = countryNames.sort();
+  	}
+  	// for(let i = 0; i < countryCount; i++) {
+  	// 	if(colourData[i][1] < 58) {
+  	// 		var colour = "red";
+  	// 	} else if(colourData[i][1] >= 58 && colourData[i][1] <= 70) {
+  	// 		var colour = "yellow";
+  	// 	} else if(colourData[i][1] > 70) {
+  	// 		var colour = "green";
+  	// 	}
+  	// 	document.querySelectorAll('[data-name="' + countryNames[i] + '"]')[0].style.fill = colour;
+  	// 	// console.log(colourData[i][1], countryNames[i-4])
+  	// }
+		
+	    
+	    for (var i = 0; i < countryCount; i++) {
 
-			var countryElements = document.getElementById('countries').childNodes;
-		    var countryCount = countryElements.length;
-		    for (var i = 0; i < countryCount; i++) {
-
-		      countryElements[i].onclick = function() {
-		      	let country = this.getAttribute("data-name");
-		      	for(let x = 0; x < rawdata.length; x++) {
-		      		if(rawdata[x].dims.COUNTRY == country) {
-		      			if(rawdata[x].dims.GHO == 'Life expectancy at birth (years)' && rawdata[x].dims.SEX == 'Both sexes' && rawdata[x].dims.YEAR == currentYear){
-		      				window.alert("The life expectancy in " + rawdata[x].dims.COUNTRY + " during " + currentYear + " was " + rawdata[x].Value);
-		      			}
-		      		}
-		      		
-		      	}
-		      }
-		    }
-		</script>
+	      countryElements[i].onclick = function() {
+	      	let country = this.getAttribute("data-name");
+	      	for(let x = 0; x < rawdata.length; x++) {
+	      		if(rawdata[x].dims.COUNTRY == country) {
+	      			if(rawdata[x].dims.GHO == 'Life expectancy at birth (years)' && rawdata[x].dims.SEX == 'Both sexes' && rawdata[x].dims.YEAR == currentYear){
+	      				// window.alert("The life expectancy in " + rawdata[x].dims.COUNTRY + " during " + currentYear + " was " + rawdata[x].Value);
+	      				Swal.fire({
+						  title: "The life expectancy in " + rawdata[x].dims.COUNTRY + " during " + currentYear + " was " + rawdata[x].Value,
+						  animation: false,
+						  customClass: {
+						    popup: 'animateMe flipX'
+						  }
+						})
+	      			}
+	      		}
+	      		
+	      	}
+	      }
+	    }
+	</script>
 	</body>
 </html> 
