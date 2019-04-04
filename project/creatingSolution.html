@@ -5,6 +5,7 @@
 
 		<link rel="stylesheet" type="text/css" href="creating.css">
 		<link rel="stylesheet" type="text/css" href="quickAnims.css">
+		<link rel="stylesheet" type="text/css" href="buttons.css">
 	</head>
 	<body>
 
@@ -21,11 +22,14 @@
 			<h2 id="insert-here" style="display: inline;"> is: </h2>
 		</div>
 
+
+		<!-- <img src="babytoold.webm"> -->
+
 		<br><br><br>
-      <div style="text-align: center; border: black 1px solid; width: 30%; margin: auto; margin-bottom: 5%;">
+      <div style="text-align: center; border: black 1px solid; width: 40%; margin: auto; margin-bottom: 5%;">
 		  <canvas id="canvas1" style="display: inline-block; width: 100%; height: 100%;"></canvas>
       </div>
-      <div style="text-align: center; border: black 1px solid; width: 30%; margin: auto; margin-bottom: 5%;">
+      <div style="text-align: center; border: black 1px solid; width: 40%; margin: auto; margin-bottom: 5%;">
         <canvas id="canvas2" style="display: inline-block; width: 100%; height: 100%;"></canvas>
       </div>
 
@@ -112,5 +116,28 @@
 	      }
 	    }
 	</script>
+
+	<script>
+		var changesText = "I made two changes to my initial design during the process of creating my final product. Firstly, I did not have time to include an animation of a baby turning into an old man. I was upset about this because I think my website lacks style, and pzazz. My second change was to not align my 3 representations of the data in a line. This was because the map needed to be much larger. So instead they are all on their own line and thus larger making it easier to both view the data, and click countries in the case of the map. Other than that, there were no changes.\n\n\n My product is justified because I wasn't able to find any website displaying life expectancies from each country in so many ways. This website is not only just interesting to look at and experiment with, but it is really useful for students doing research. It's much easier to interperate than tabular data, and most of all, it's easy on the eyes. One thing that makes my product very good, is that it is very concise, and to the point. There is no struggle to find the data you want in the format you want, and if you just want to see the tabular data, you can visit the WHO website that is linked at the bottom of the page"
+		function showChanges() {
+			Swal.fire({
+						  title: changesText,
+						  animation: false,
+						  customClass: {
+						    popup: 'animateMe flipY'
+						  }
+						})
+		}
+	</script>
+	<div style="text-align: center;">
+	<a href="http://apps.who.int/gho/data/view.main.SDG2016LEXv?lang=en" target="_blank" style="display: inline-block; color: black; margin-top: 10%;">View the data on the WHO website</a>
+</div>	
+
+	<button class="button button-outline dark center haha" style="margin-top: 10%; margin-bottom: 10%;" onclick="showChanges()">Changes to my Design</button>
+	<style>
+	.haha:focus {
+		outline: none;
+	}
+</style>
 	</body>
 </html> 
