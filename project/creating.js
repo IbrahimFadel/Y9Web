@@ -103,12 +103,13 @@ function drawBar(ctx, upperLeftCornerX, upperLeftCornerY, width, height,color){
 }
 
 function propogateYearsSelect() {
-    years = [];
-    for(let i = 0; i < lifeExpectancyAtBirthBothSexes.length; i++) {
-        if(lifeExpectancyAtBirthBothSexes[i].dims.COUNTRY == currentCountry) {
-            years.push(lifeExpectancyAtBirthBothSexes[i].dims.YEAR);
-        }
-    }
+    // years = [];
+    // for(let i = 0; i < lifeExpectancyAtBirthBothSexes.length; i++) {
+    //     if(lifeExpectancyAtBirthBothSexes[i].dims.COUNTRY == currentCountry) {
+    //         years.push(lifeExpectancyAtBirthBothSexes[i].dims.YEAR);
+    //     }
+    // }
+    years = ["2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000"]
 
     var node = document.getElementById("select-year");
     while(node.firstChild) {
