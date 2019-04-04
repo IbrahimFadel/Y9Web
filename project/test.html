@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Test</title>
+    <title></title>
 </head>
-
 <body>
-    <canvas id="can"></canvas>
-    <script src="data.json"></script>
-    <script>
-    var can = document.getElementById("can");
-    var ctx = can.getContext("2d");
 
-    for (let i = 0; i < rawdata.length; i++) {
-    	if(rawdata[i].dims.COUNTRY == 'Canada') {
-    		let num = parseFloat(rawdata[i].Value.replace(" ", ""));
+<h3>Success Criterion:</h3>
 
-    		ctx.fillStyle = "red";
-    		ctx.fillRect(0, 0, num*50, 50);
+<ol>
+        <li style="color: yellow;">An intuitive interface(anyone can look at it and understand what’s going on and how to use it)
+</li>
+        <li style="color: green;">Correct data
+</li>
+        <li style="color: green;">A slider to select the year(like a timeline)
+</li>
+        <li style="color: green;">Several representations of data<br> a) A interactive map to show data from each country<br> b) etc.
+        </li>
+        <li style="color: green;">A responsive layout</li>
+        <li style="color: green;">Sources cited</li>
+        <li style="color: green;">Aesthetically pleasing<br> a) Nice color theme<br> b) No conflicting colors <br> c) No elements clumped together
+        </li>
+        <li style="color: yellow;">Page loads fast</li>
 
-    		break;
-    	}
-    }
-    </script>
+    </ol>
+
+<p>I made two changes to my initial design during the process of creating my final product. Firstly, I did not have time to include an animation of a baby turning into an old man. I was upset about this because I think my website lacks style, and pzazz. My second change was to not align my 3 representations of the data in a line. This was because the map needed to be much larger. So instead they are all on their own line and thus larger making it easier to both view the data, and click countries in the case of the map. Other than that, there were no changes.<br><br>
+
+The website has a very intuitive interface, however there is one bug that may confuse some people which is why it's yellow(partially completed). This bug, is that the year option meny doesn't show change, even though it is really changing. This may cause people to wonder what's going on and get lost, but other than that, it's very easy to use.<br><br>
+As you can see, all the data is correct and can be verified on the WHO website.<br><br>
+There is in fact a slider at the bottom of the screen to change the year dynamically. I added my own styling to it, and I think it looks very nice.<br><br>
+Of course, there are several representations of the data(3). A bar chart, line graph, and map. The map was the most challenging of the three, but I think it is also the best representation of the three. A next step for the map would be to add colour coding based on life expectancy, which I almost had working, but due to differences in the map data and the WHO data, I had to leave it out.<br><br>
+The website is fully responsive, so go ahead and resize the window!<br><br>
+The WHO website(where all the data was found) is linked at the bottom of the page.<br><br>
+I believe the website is asthetically pleasing. While it is pretty plain, the colours in the charts/graphs compliment the background and eachother, leading to an overall pleasant experience.<br><br>
+Finally, the page does indeed load quickly. However, there were many inefficient things done in the code which may elongate loading time. Next time, I will plan better to have more efficient code. Because of this, it is only partially completed.<br>
+
+<br><br> My product is justified because I wasn't able to find any website displaying life expectancies from each country in so many ways. This website is not only just interesting to look at and experiment with, but it is really useful for students doing research. It's much easier to interperate than tabular data, and most of all, it's easy on the eyes. One thing that makes my product very good, is that it is very concise, and to the point. There is no struggle to find the data you want in the format you want, and if you just want to see the tabular data, you can visit the WHO website that is linked at the bottom of the page<br><br> Although I made some changes, all of my success criterion were met, and I'm very happy about that.<br><br> Overall i'm very happy with my product, I think it would prove usefull to many people, and I learnt alot creating it. This website is one of a kind, and I think that it is fully justified.</p>
+
 </body>
-
 </html>
